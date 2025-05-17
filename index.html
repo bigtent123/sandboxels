@@ -13207,6 +13207,9 @@ keybinds["Backspace"] = ()=>{ // Select previous element
 // If the localStorage key "enabledMods" exists, load it as an array.
 // If it doesn't exist, create an empty array.
 enabledMods = localStorage.getItem("enabledMods") ? JSON.parse(localStorage.getItem("enabledMods")) : [];
+if (enabledMods.indexOf("mods/llm_generator.js") === -1) {
+    enabledMods.push("mods/llm_generator.js");
+}
 loadedMods = [];
 queuedMods = [];
 dependents = {};

@@ -77,7 +77,7 @@ a:active, a:hover:active, .saveOption:active, .saveOption:hover:active {filter: 
 	display: none
 }
 #game {
-	image-rendering: pixelated;
+        image-rendering: auto;
 }
 #bottomInfoBox { /* place under the game canvas */
 	margin: 1.5em 50px 0px 50px;
