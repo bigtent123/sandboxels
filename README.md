@@ -24,6 +24,7 @@ Join the [Discord server](https://discord.com/invite/ejUc6YPQuS).
  * 1234 = Change view
  * F1 = Toggle GUI
  * C or F2 = Capture screenshot
+ * Shift + Q = Open LLM generator
 
 (Alt/Option can be used in place of Shift)
 
@@ -40,3 +41,4 @@ Join the [Discord server](https://discord.com/invite/ejUc6YPQuS).
  * Saves           =  Open the Save & Load menu
  * Mods            =  Open the Mod Manager
  * Settings        =  Open the settings menu
+ * LLM             =  Open the LLM generator
