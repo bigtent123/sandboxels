@@ -18345,15 +18345,19 @@ window.onload = function() {
 		}
 		resizeCanvas(newHeight,newWidth,pixelSize,clear);
 	}
-	resizeCanvas = function(newHeight,newWidth,newPixelSize,clear) {
-		var gameCanvas = document.getElementById("game");
-		var ctx = gameCanvas.getContext("2d");
-		ctx.canvas.width = newWidth;
-		ctx.canvas.height = newHeight;
-		document.getElementById("gameDiv").style.width = newWidth + "px";
-		ctx.webkitImageSmoothingEnabled = false;
-		ctx.mozImageSmoothingEnabled = false;
-		ctx.imageSmoothingEnabled = false;
+        resizeCanvas = function(newHeight,newWidth,newPixelSize,clear) {
+                var gameCanvas = document.getElementById("game");
+                var ctx = gameCanvas.getContext("2d");
+                const ratio = window.devicePixelRatio || 1;
+                gameCanvas.style.width = newWidth + "px";
+                gameCanvas.style.height = newHeight + "px";
+                ctx.canvas.width = newWidth * ratio;
+                ctx.canvas.height = newHeight * ratio;
+                ctx.setTransform(ratio,0,0,ratio,0,0);
+                document.getElementById("gameDiv").style.width = newWidth + "px";
+                ctx.webkitImageSmoothingEnabled = false;
+                ctx.mozImageSmoothingEnabled = false;
+                ctx.imageSmoothingEnabled = false;
 		pixelSize = newPixelSize;
 		pixelSizeHalf = newPixelSize/2;
 		pixelSize3 = newPixelSize*3;
@@ -18361,16 +18365,19 @@ window.onload = function() {
 		width = Math.round(newWidth/newPixelSize)-1;
 		mousePos = {x:Math.round(width/2),y:Math.round(height/2)};
 		if (clear!==false) { clearAll(); }
-		var canvasLayerKeys = Object.keys(canvasLayers);
-		for (let i = 0; i < canvasLayerKeys.length; i++) {
-			const layerCanvas = canvasLayers[canvasLayerKeys[i]];
-			var layerCtx = layerCanvas.getContext("2d");
-			layerCtx.canvas.width = ctx.canvas.width;
-			layerCtx.canvas.height = ctx.canvas.height;
-			layerCtx.webkitImageSmoothingEnabled = false;
-			layerCtx.mozImageSmoothingEnabled = false;
-			layerCtx.imageSmoothingEnabled = false;
-		}
+                var canvasLayerKeys = Object.keys(canvasLayers);
+                for (let i = 0; i < canvasLayerKeys.length; i++) {
+                        const layerCanvas = canvasLayers[canvasLayerKeys[i]];
+                        var layerCtx = layerCanvas.getContext("2d");
+                        layerCanvas.style.width = newWidth + "px";
+                        layerCanvas.style.height = newHeight + "px";
+                        layerCtx.canvas.width = ctx.canvas.width;
+                        layerCtx.canvas.height = ctx.canvas.height;
+                        layerCtx.setTransform(ratio,0,0,ratio,0,0);
+                        layerCtx.webkitImageSmoothingEnabled = false;
+                        layerCtx.mozImageSmoothingEnabled = false;
+                        layerCtx.imageSmoothingEnabled = false;
+                }
 	}
 	autoResizeCanvas(false);
 
