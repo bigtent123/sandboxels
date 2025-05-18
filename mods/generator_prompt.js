@@ -18,10 +18,10 @@ if(lgoDisplayString === "") {
 };
 
 document.addEventListener("keydown", function(e) { //prop prompt listener
-	// , = propPrompt()
-	if (e.keyCode == 71) { //G
-		if(shiftDown) { generatorPrompt() };
-	};
+        // , = propPrompt()
+        if (e.keyCode == 81) { //Q
+                if(shiftDown) { generatorPrompt() };
+        };
 });
 
 function generatorPrompt() {
@@ -90,7 +90,7 @@ function generatorPrompt() {
 elements.generator_prompt = {
 	color: ["#000000","#666666","#886622","#558800"],
 	behavior: behaviors.SELFDELETE,
-	desc: "<span style='color:#FF00FF;' onClick=generatorPrompt()>Click here or press Shift+G to open the generator prompt.</span>",
+       desc: "<span style='color:#FF00FF;' onClick=generatorPrompt()>Click here or press Shift+Q to open the generator prompt.</span>",
 	category:"special",
 };
 
