@@ -33,10 +33,12 @@ html {
 	src: url('fonts/VT323-Regular.ttf');
 }
 body {
-	font-family: 'Press Start 2P', 'VT323', Arial;
-	background-color: var(--theme-darkest2);
-	color: #ffffff;
-	caret-color: #e6d577;
+        font-family: 'Press Start 2P', 'VT323', Arial;
+        background-color: var(--theme-darkest2);
+        color: #ffffff;
+        caret-color: #e6d577;
+        -webkit-font-smoothing: none;
+        -moz-osx-font-smoothing: grayscale;
 }
 ::-moz-selection {
 	background: #948a54;
@@ -339,14 +341,14 @@ button, input[type="submit"], input[type="reset"] {
 	padding: 5px 10px;
 	border-radius: 5px;
 	font-size: 1em;
-	text-shadow: 0.5px 1px 4px #000000;
+        text-shadow: none;
 	color: rgba(255, 255, 255, 0.85);
 	border: 2px solid var(--theme-opac85);
 	margin: 0px 4px 4px 4px;
 	font-variant: small-caps;
 }
 #controls button.bright {
-	text-shadow: 0.5px 1px 4px #ffffff;
+        text-shadow: none;
 	color: rgba(0, 0, 0, 0.85);   
 }
 /*Darken when active*/
@@ -671,8 +673,9 @@ button, input { /*Disable double tap zoom on mobile devices*/
 	filter: brightness(75%);
 }
 #canvasDiv {
-	position:relative;
-	overflow-x:hidden
+        position:relative;
+        overflow-x:hidden
+        image-rendering: pixelated;
 }
 #colorSelector {
 	position:absolute;
@@ -716,7 +719,7 @@ button, input { /*Disable double tap zoom on mobile devices*/
 	padding: 5px;
 	white-space: pre-wrap;
 	font-size: 0.75em;
-	text-shadow: 0px 0px 6px black;
+        text-shadow: none;
 }
 button.disabled {
 	opacity: 0.5;
